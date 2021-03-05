@@ -1,5 +1,5 @@
 <h1>
-chatwoot-react-native-widget
+chatwoot-react-native-widget (beta)
 </h1>
 
 ## Installation
