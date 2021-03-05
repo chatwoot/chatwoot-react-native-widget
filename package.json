@@ -8,8 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.14.1",
     "react": "^17.0.1",
-    "react-native": "^0.63.4"
+    "react-native": "^0.63.4",
+    "react-native-modal": "^11.7.0",
+    "react-native-webview": "^11.2.3"
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "^2.0.0",
