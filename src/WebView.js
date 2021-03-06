@@ -56,6 +56,7 @@ const WebViewComponent = ({ baseUrl, websiteToken, cwCookie, locale, user, custo
       domStorageEnabled={true}
       style={styles.WebViewStyle}
       injectedJavaScript={injectedJavaScript}
+      scrollEnabled
     />
   );
 };
