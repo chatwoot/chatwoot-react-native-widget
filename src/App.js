@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import { storeHelper } from './utils';
 import WebView from './WebView';
+import styles from './style';
 const propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
   websiteToken: PropTypes.string.isRequired,
@@ -44,6 +45,7 @@ const ChatWootWidget = ({
     }
     fetchData();
   }, []);
+
   return (
     <Modal isVisible={isModalVisible} onBackdropPress={closeModal}>
       <View style={styles.modal}>
@@ -60,14 +62,17 @@ const ChatWootWidget = ({
   );
 };
 
-const styles = StyleSheet.create({
-  modal: {
-    flex: 1,
-    paddingVertical: 32,
-  },
-});
-
 ChatWootWidget.defaultProps = defaultProps;
 ChatWootWidget.propTypes = propTypes;
 
 export default ChatWootWidget;
+
+export const setUser = (email) => {
+  console.log('email', email);
+  //   CrispChatSdk.setUserEmail(email);
+};
+
+export const setCustomeAttributes = (attributes) => {
+  console.log('attributes', attributes);
+  //   CrispChatSdk.show();
+};

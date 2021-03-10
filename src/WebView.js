@@ -35,6 +35,7 @@ const WebViewComponent = ({ baseUrl, websiteToken, cwCookie, locale, user, custo
     locale,
     customAttributes,
   });
+
   return (
     <WebView
       source={{
