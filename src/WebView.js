@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
-import { isJsonString, storeHelper, generateScripts } from './utils';
+import { isJsonString, storeHelper, generateScripts, getMessage } from './utils';
 const propTypes = {
   websiteToken: PropTypes.string.isRequired,
   baseUrl: PropTypes.string.isRequired,
@@ -43,8 +43,9 @@ const WebViewComponent = ({ baseUrl, websiteToken, cwCookie, locale, user, custo
       }}
       onMessage={(event) => {
         const { data } = event.nativeEvent;
-        if (isJsonString(data)) {
-          const { type, value } = JSON.parse(data);
+        const message = getMessage(data);
+        if (isJsonString(message)) {
+          const { type, value } = JSON.parse(message);
           if (type === 'auth-token') {
             storeHelper.storeCookie(value);
           }
