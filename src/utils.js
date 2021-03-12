@@ -17,6 +17,8 @@ export const createWootPostMessage = (object) => {
   return script;
 };
 
+export const getMessage = (data) => data.replace(WOOT_PREFIX, '');
+
 export const generateScripts = ({ user, locale, customAttributes }) => {
   let script = '';
   if (user) {
