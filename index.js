@@ -1,2 +1,2 @@
-import WebView from './src/WebView';
-export default WebView;
+import App from './src/App';
+export default App;

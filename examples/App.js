@@ -1,111 +1,73 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, {useState} from 'react';
+import ChatWootWidget from '@chatwoot/chatwoot-react-native-widget-testing';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+const App = () => {
+  const [showWidget, toggleWidget] = useState(false);
+  const [user, setUser] = useState({
+    identifier: 'gustavo_hoffman@gmail.com',
+    name: 'Gustavo Hoffman',
+    avatar_url: 'https://i.pravatar.cc/300',
+    email: 'gustavo_hoffman@gmail.com',
+    identifier_hash: '',
+  });
+  const customAttributes = {
+    accountId: 1,
+    pricingPlan: 'paid',
+    status: 'active',
   };
+  const websiteToken = 'TOKEN';
+  const baseUrl = 'https://staging.chatwoot.com';
+  const [locale, setLocale] = useState('ml');
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => toggleWidget(true)}
+        underlayColor="#fff">
+        <Text style={styles.buttonText}>Open Chatwoot Widget</Text>
+      </TouchableOpacity>
+      {showWidget && (
+        <ChatWootWidget
+          websiteToken={websiteToken}
+          locale={locale}
+          baseUrl={baseUrl}
+          closeModal={() => toggleWidget(false)}
+          isModalVisible={showWidget}
+          user={user}
+          customAttributes={customAttributes}
+        />
+      )}
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    height: 48,
     marginTop: 32,
-    paddingHorizontal: 24,
+    paddingTop: 8,
+    paddingBottom: 8,
+    backgroundColor: '#1F93FF',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    paddingLeft: 10,
     fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    fontSize: 16,
+    paddingRight: 10,
   },
 });
 
