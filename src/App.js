@@ -47,8 +47,15 @@ const ChatWootWidget = ({
   }, []);
 
   return (
-    <Modal isVisible={isModalVisible} onBackdropPress={closeModal}>
-      <View style={styles.modal}>
+    <Modal
+      style={styles.modal}
+      coverScreen
+      isVisible={isModalVisible}
+      onSwipeComplete={() => isModalVisible}
+      swipeDirection="left"
+      onBackdropPress={closeModal}
+      onBackButtonPress={closeModal}>
+      <View style={styles.mainView}>
         <WebView
           websiteToken={websiteToken}
           cwCookie={cwCookie}
@@ -67,13 +74,3 @@ ChatWootWidget.defaultProps = defaultProps;
 ChatWootWidget.propTypes = propTypes;
 
 export default ChatWootWidget;
-
-export const setUser = (email) => {
-  console.log('email', email);
-  //   CrispChatSdk.setUserEmail(email);
-};
-
-export const setCustomeAttributes = (attributes) => {
-  console.log('attributes', attributes);
-  //   CrispChatSdk.show();
-};

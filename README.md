@@ -16,6 +16,7 @@ OR
 npm install --save chatwoot-react-native-widget
 ```
 
+- **Supported Chatwoot version:** 1.13.2+
 ### iOS Installation
 
 If you're using React Native versions > 60.0, it's relatively straightforward.
