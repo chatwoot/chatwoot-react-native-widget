@@ -2,7 +2,17 @@
 chatwoot-react-native-widget (Work in progress)
 </h1>
 
-## Installation
+![](https://img.shields.io/npm/v/@chatwoot/chatwoot-react-native-widget-testing?style=flat)
+![](https://img.shields.io/npm/dt/@chatwoot/chatwoot-react-native-widget-testing)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+![](https://img.shields.io/npm/l/@chatwoot/chatwoot-react-native-widget-testing)
+
+- **Supported Chatwoot version:** 1.13.2+
+
+
+<img src=".github/screenshot.png" alt="screenshot" width="350">
+
+### Installation
 
 Install the library using either yarn or npm like so:
 
@@ -16,7 +26,8 @@ OR
 npm install --save chatwoot-react-native-widget
 ```
 
-- **Supported Chatwoot version:** 1.13.2+
+This library depends on [react-native-webview](https://www.npmjs.com/package/react-native-webview) and [async-storage](https://github.com/react-native-async-storage/async-storage). Please follow the instructions provided in the docs.
+
 ### iOS Installation
 
 If you're using React Native versions > 60.0, it's relatively straightforward.
@@ -59,8 +70,7 @@ const App = () => {
           <Text style={styles.buttonText}>Open widget</Text>
         </TouchableOpacity>
       </View>
-      {showWidget && (
-        <ChatWootWidget
+      <ChatWootWidget
           websiteToken={websiteToken}
           locale={locale}
           baseUrl={baseUrl}
@@ -69,7 +79,6 @@ const App = () => {
           user={user}
           customAttributes={customAttributes}
         />
-      )}
     </SafeAreaView>
   );
 };

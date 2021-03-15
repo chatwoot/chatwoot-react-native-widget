@@ -704,10 +704,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chatwoot/chatwoot-react-native-widget-testing@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@chatwoot/chatwoot-react-native-widget-testing/-/chatwoot-react-native-widget-testing-0.0.15.tgz#a2528f78571d3036cf940ba69c1c0dcc91233ea7"
-  integrity sha512-M0gKGog+QQncLswCZwGm54NOgaS3t10SuiRzItTrtfCPKi9wAnRTq56+jj+43DIA1CsUwSj1Jihengw7EAlQNw==
+"@chatwoot/chatwoot-react-native-widget-testing@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@chatwoot/chatwoot-react-native-widget-testing/-/chatwoot-react-native-widget-testing-0.0.17.tgz#3f19d9f4075eabdd6a58d746a4d7b3915d83dfec"
+  integrity sha512-GZk+8Q1YqwUu2lkFQTMLwkzCjOduFzxCtdnoduR0GO3AL+4gxqWLmlaKvdF7IGj4vUTXYDK2zRYL8rAUJxn3Ig==
   dependencies:
     react-native-modal "^11.7.0"
 
