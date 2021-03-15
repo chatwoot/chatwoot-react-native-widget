@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
 import ChatWootWidget from '@chatwoot/chatwoot-react-native-widget-testing';
 
-import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
+import styles from './style';
 const App = () => {
   const [showWidget, toggleWidget] = useState(false);
   const [user, setUser] = useState({
@@ -17,58 +24,71 @@ const App = () => {
     pricingPlan: 'paid',
     status: 'active',
   };
-  const websiteToken = 'TOKEN';
-  const baseUrl = 'https://staging.chatwoot.com';
-  const [locale, setLocale] = useState('ml');
+  const websiteToken = '4cWzuf9i9jxN9tbnv8K9STKU';
+  const baseUrl = 'https://lovely-newt-97.loca.lt';
+  const [locale, setLocale] = useState('en');
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => toggleWidget(true)}
-        underlayColor="#fff">
-        <Text style={styles.buttonText}>Open Chatwoot Widget</Text>
-      </TouchableOpacity>
-      {showWidget && (
-        <ChatWootWidget
-          websiteToken={websiteToken}
-          locale={locale}
-          baseUrl={baseUrl}
-          closeModal={() => toggleWidget(false)}
-          isModalVisible={showWidget}
-          user={user}
-          customAttributes={customAttributes}
+      <View>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={text =>
+            setUser(prevUser => ({
+              ...prevUser,
+              name: text,
+            }))
+          }
+          value={user.name}
         />
-      )}
+        <Text style={styles.label}>Email</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={text =>
+            setUser(prevUser => ({
+              ...prevUser,
+              email: text,
+              identifier: text,
+            }))
+          }
+          value={user.email}
+        />
+        <Text style={styles.label}>Language</Text>
+        <TextInput
+          style={styles.input}
+          value={locale}
+          onChangeText={text => setLocale(locale)}
+        />
+        <Text style={styles.label}>Avatar</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={text =>
+            setUser(prevUser => ({
+              ...prevUser,
+              avatar_url: text,
+            }))
+          }
+          value={user.avatar_url}
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => toggleWidget(true)}
+          underlayColor="#fff">
+          <Text style={styles.buttonText}>Open Chatwoot Widget</Text>
+        </TouchableOpacity>
+      </View>
+      <ChatWootWidget
+        websiteToken={websiteToken}
+        locale={locale}
+        baseUrl={baseUrl}
+        closeModal={() => toggleWidget(false)}
+        isModalVisible={showWidget}
+        user={user}
+        customAttributes={customAttributes}
+      />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    height: 48,
-    marginTop: 32,
-    paddingTop: 8,
-    paddingBottom: 8,
-    backgroundColor: '#1F93FF',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#fff',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    textAlign: 'center',
-    paddingLeft: 10,
-    fontWeight: '600',
-    fontSize: 16,
-    paddingRight: 10,
-  },
-});
 
 export default App;

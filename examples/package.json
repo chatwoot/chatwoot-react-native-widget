@@ -11,8 +11,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@chatwoot/chatwoot-react-native-widget-testing": "^0.0.15",
+    "@react-native-async-storage/async-storage": "^1.14.1",
+    "add": "^2.0.6",
     "react": "17.0.1",
-    "react-native": "0.64.0"
+    "react-native": "0.64.0",
+    "react-native-webview": "^11.2.5",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -2,7 +2,7 @@ const { StyleSheet } = require('react-native');
 
 const styles = StyleSheet.create({
   modal: {
-    margin: 0,
+    paddingVertical: 16,
   },
   mainView: {
     flex: 1,
