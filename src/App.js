@@ -56,6 +56,7 @@ const ChatWootWidget = ({
           baseUrl={baseUrl}
           locale={locale}
           customAttributes={customAttributes}
+          closeModal={closeModal}
         />
       </View>
     </Modal>

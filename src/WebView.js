@@ -15,6 +15,7 @@ const propTypes = {
   }),
   locale: PropTypes.string,
   customAttributes: PropTypes.shape({}),
+  closeModal: PropTypes.func,
 };
 
 const defaultProps = {
@@ -24,7 +25,15 @@ const defaultProps = {
   customattributes: {},
 };
 
-const WebViewComponent = ({ baseUrl, websiteToken, cwCookie, locale, user, customAttributes }) => {
+const WebViewComponent = ({
+  baseUrl,
+  websiteToken,
+  cwCookie,
+  locale,
+  user,
+  customAttributes,
+  closeModal,
+}) => {
   let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=en`;
 
   if (cwCookie) {
@@ -48,6 +57,9 @@ const WebViewComponent = ({ baseUrl, websiteToken, cwCookie, locale, user, custo
           const { type, value } = JSON.parse(message);
           if (type === 'auth-token') {
             storeHelper.storeCookie(value);
+          }
+          if (type === 'close-widget') {
+            closeModal();
           }
         }
       }}
