@@ -1,6 +1,6 @@
 {
   "name": "@chatwoot/chatwoot-react-native-widget-testing",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "React Native widget for Chatwoot",
   "main": "index.js",
   "scripts": {
