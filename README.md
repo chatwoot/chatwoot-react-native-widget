@@ -1,5 +1,5 @@
 <h1>
-chatwoot-react-native-widget (Work in progress)
+chatwoot-react-native-widget
 </h1>
 
 ![](https://img.shields.io/npm/v/@chatwoot/react-native-widget?style=flat)
