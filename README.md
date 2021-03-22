@@ -9,7 +9,6 @@ chatwoot-react-native-widget (Work in progress)
 
 - **Supported Chatwoot version:** 1.13.2+
 
-
 <img src=".github/screenshot.png" alt="screenshot" width="350">
 
 ### Installation
@@ -17,13 +16,13 @@ chatwoot-react-native-widget (Work in progress)
 Install the library using either yarn or npm like so:
 
 ```sh
-yarn add chatwoot-react-native-widget
+yarn add @chatwoot/react-native-widget
 ```
 
 OR
 
 ```sh
-npm install --save chatwoot-react-native-widget
+npm install --save @chatwoot/react-native-widget
 ```
 
 This library depends on [react-native-webview](https://www.npmjs.com/package/react-native-webview) and [async-storage](https://github.com/react-native-async-storage/async-storage). Please follow the instructions provided in the docs.
@@ -47,7 +46,7 @@ import React, { useState } from 'react';
 
 import { StyleSheet, View, SafeAreaView, TouchableOpacity, Text } from 'react-native';
 
-import ChatWootWidget from 'chatwoot-react-native-widget';
+import ChatWootWidget from '@chatwoot/react-native-widget';
 
 const App = () => {
   const [showWidget, toggleWidget] = useState(false);
@@ -118,7 +117,6 @@ export default App;
 You're done!
 
 The whole example is in the `/example` folder.
-
 
 ### Props
 
