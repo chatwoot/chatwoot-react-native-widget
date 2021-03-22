@@ -7,7 +7,6 @@ chatwoot-react-native-widget
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 ![](https://img.shields.io/npm/l/@chatwoot/@chatwoot/react-native-widget)
 
-
 - **Supported Chatwoot version:** 1.13.2+
 
 <img src="https://user-images.githubusercontent.com/12408980/112000864-99ef4d80-8adb-11eb-94c1-9901a13b4dd4.png" alt="screenshot" width="350">
@@ -127,16 +126,34 @@ The whole example is in the `/example` folder.
 </tr></thead>
 <tbody>
   <tr>
-    <td>websiteToken</td>
-    <td> - </td>
-    <td> String </td>
-    <td>The website token copyied from website channel</td>
-  </tr>
-  <tr>
     <td>baseUrl</td>
     <td> - </td>
     <td> String </td>
-    <td>Chatwoot installation url</td>
+    <td>Chatwoot installation URL</td>
+  </tr>
+ <tr>
+    <td>websiteToken</td>
+    <td> - </td>
+    <td> String </td>
+    <td>Website channel token</td>
+  </tr>
+  <tr>
+    <td>locale</td>
+    <td> en </td>
+    <td> String </td>
+    <td>Locale</td>
+  </tr>
+  <tr>
+    <td>isModalVisible</td>
+    <td> false </td>
+    <td> Boolean </td>
+    <td>Widget is visible or not</td>
+  </tr>
+    <tr>
+    <td>closeModal</td>
+    <td> - </td>
+    <td> Function </td>
+    <td>Close event</td>
   </tr>
   <tr>
 	  <td>user</td>
@@ -145,7 +162,7 @@ The whole example is in the `/example` folder.
     <td>User information about the user like email, username and avatar_url</td>
   </tr>
   <tr>
-   <td>customattributes</td>
+   <td>customAttributes</td>
     <td> {} </td>
     <td> Object </td>
     <td>Additional information about the customer</td>
