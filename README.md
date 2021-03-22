@@ -10,7 +10,7 @@ chatwoot-react-native-widget
 
 - **Supported Chatwoot version:** 1.13.2+
 
-<img src=".github/screenshot.png" alt="screenshot" width="350">
+<img src="https://user-images.githubusercontent.com/12408980/112000864-99ef4d80-8adb-11eb-94c1-9901a13b4dd4.png" alt="screenshot" width="350">
 
 ### Installation
 
