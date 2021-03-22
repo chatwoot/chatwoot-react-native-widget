@@ -2,10 +2,11 @@
 chatwoot-react-native-widget (Work in progress)
 </h1>
 
-![](https://img.shields.io/npm/v/@chatwoot/@chatwoot/react-native-widget?style=flat)
-![](https://img.shields.io/npm/dt/@chatwoot/@chatwoot/react-native-widget)
+![](https://img.shields.io/npm/v/@chatwoot/react-native-widget?style=flat)
+![](https://img.shields.io/npm/dt/@chatwoot/react-native-widget.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 ![](https://img.shields.io/npm/l/@chatwoot/@chatwoot/react-native-widget)
+
 
 - **Supported Chatwoot version:** 1.13.2+
 
