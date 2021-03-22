@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ChatWootWidget from '@chatwoot/chatwoot-react-native-widget-testing';
+import ChatWootWidget from '@chatwoot/react-native-widget';
 
 import {
   SafeAreaView,
@@ -13,10 +13,10 @@ import styles from './style';
 const App = () => {
   const [showWidget, toggleWidget] = useState(false);
   const [user, setUser] = useState({
-    identifier: 'gustavo_hoffman@gmail.com',
-    name: 'Gustavo Hoffman',
+    identifier: 'sabu_mon@gmail.com',
+    name: 'Sabu Mon',
     avatar_url: 'https://i.pravatar.cc/300',
-    email: 'gustavo_hoffman@gmail.com',
+    email: 'sabu_mon@gmail.com',
     identifier_hash: '',
   });
   const customAttributes = {
@@ -24,8 +24,8 @@ const App = () => {
     pricingPlan: 'paid',
     status: 'active',
   };
-  const websiteToken = '4cWzuf9i9jxN9tbnv8K9STKU';
-  const baseUrl = 'https://lovely-newt-97.loca.lt';
+  const websiteToken = 'gUuQpz4wKSBZ36zpWyXtShrJ';
+  const baseUrl = 'https://staging.chatwoot.com';
   const [locale, setLocale] = useState('en');
 
   return (

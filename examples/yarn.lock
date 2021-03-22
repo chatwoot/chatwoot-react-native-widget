@@ -704,10 +704,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chatwoot/chatwoot-react-native-widget-testing@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@chatwoot/chatwoot-react-native-widget-testing/-/chatwoot-react-native-widget-testing-0.0.17.tgz#3f19d9f4075eabdd6a58d746a4d7b3915d83dfec"
-  integrity sha512-GZk+8Q1YqwUu2lkFQTMLwkzCjOduFzxCtdnoduR0GO3AL+4gxqWLmlaKvdF7IGj4vUTXYDK2zRYL8rAUJxn3Ig==
+"@chatwoot/react-native-widget@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@chatwoot/react-native-widget/-/react-native-widget-0.0.3.tgz#072b74d8fcb17564b8529bc537d33e0159787870"
+  integrity sha512-fhvc2mhIXHd039kJEthLt92yQcOR6ApeMOGFmDc2JXFlGE46d+oKJuVjU1x1lMtUT6Ndez6nGbrtp89ev6Ntpg==
   dependencies:
     react-native-modal "^11.7.0"
 
@@ -1355,11 +1355,6 @@ acorn@^8.0.5:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.1.0.tgz#52311fd7037ae119cbb134309e901aa46295b3fe"
   integrity sha512-LWCF/Wn0nfHOmJ9rzQApGnxnvgfROzGilS8936rqN/lfcYkY9MYZzdMqN+2NJ4SlTc+m5HiSa+kNfDtI64dwUA==
-
-add@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
-  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
 
 ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4:
   version "6.12.6"
