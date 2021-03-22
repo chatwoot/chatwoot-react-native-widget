@@ -54,9 +54,13 @@ const WebViewComponent = ({
         const { data } = event.nativeEvent;
         const message = getMessage(data);
         if (isJsonString(message)) {
-          const { type, value } = JSON.parse(message);
-          if (type === 'auth-token') {
-            storeHelper.storeCookie(value);
+          const parsedMessage = JSON.parse(message);
+          const { event: eventType, type } = parsedMessage;
+          if (eventType === 'loaded') {
+            const {
+              config: { authToken },
+            } = parsedMessage;
+            storeHelper.storeCookie(authToken);
           }
           if (type === 'close-widget') {
             closeModal();
