@@ -1,9 +1,9 @@
 {
-  "name": "@chatwoot/chatwoot-react-native-widget-testing",
-  "version": "0.0.22",
+  "name": "@chatwoot/react-native-widget",
+  "version": "0.0.1",
   "description": "React Native widget for Chatwoot",
   "main": "index.js",
-  "scripts": {
+   "scripts": {
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +11,9 @@
     "react-native-modal": "^11.7.0"
   },
   "peerDependencies": {
+    "@react-native-async-storage/async-storage": "^1.14.1",
     "react": "*",
     "react-native": "*",
-    "@react-native-async-storage/async-storage": "^1.14.1",
     "react-native-webview": "^11.2.3"
   },
   "devDependencies": {
