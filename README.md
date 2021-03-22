@@ -2,10 +2,10 @@
 chatwoot-react-native-widget (Work in progress)
 </h1>
 
-![](https://img.shields.io/npm/v/@chatwoot/chatwoot-react-native-widget-testing?style=flat)
-![](https://img.shields.io/npm/dt/@chatwoot/chatwoot-react-native-widget-testing)
+![](https://img.shields.io/npm/v/@chatwoot/@chatwoot/react-native-widget?style=flat)
+![](https://img.shields.io/npm/dt/@chatwoot/@chatwoot/react-native-widget)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-![](https://img.shields.io/npm/l/@chatwoot/chatwoot-react-native-widget-testing)
+![](https://img.shields.io/npm/l/@chatwoot/@chatwoot/react-native-widget)
 
 - **Supported Chatwoot version:** 1.13.2+
 
@@ -39,7 +39,7 @@ cd ios && pod install
 ### How to use
 
 1. Create a website channel in chatwoot server by following the steps described here https://www.chatwoot.com/docs/channels/website
-2. Replace `websiteToken` prop
+2. Replace `websiteToken` prop and `baseUrl`
 
 ```
 
@@ -114,6 +114,11 @@ const styles = StyleSheet.create({
 export default App;
 
 ```
+
+You're done!
+
+The whole example is in the `/example` folder.
+
 
 ### Props
 
