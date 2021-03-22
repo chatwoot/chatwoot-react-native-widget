@@ -2,7 +2,7 @@ name: npm-publish
 on:
   push:
     branches: 
-      - develop # Change this to your default branch
+      - master # Change this to your default branch
 jobs:
   build:
     runs-on: ubuntu-latest
