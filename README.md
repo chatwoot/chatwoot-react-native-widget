@@ -69,15 +69,19 @@ const App = () => {
           <Text style={styles.buttonText}>Open widget</Text>
         </TouchableOpacity>
       </View>
-      <ChatWootWidget
-          websiteToken={websiteToken}
-          locale={locale}
-          baseUrl={baseUrl}
-          closeModal={() => toggleWidget(false)}
-          isModalVisible={showWidget}
-          user={user}
-          customAttributes={customAttributes}
-        />
+      {
+        showWidget&&
+          <ChatWootWidget
+            websiteToken={websiteToken}
+            locale={locale}
+            baseUrl={baseUrl}
+            closeModal={() => toggleWidget(false)}
+            isModalVisible={showWidget}
+            user={user}
+            customAttributes={customAttributes}
+          />
+      }
+
     </SafeAreaView>
   );
 };
