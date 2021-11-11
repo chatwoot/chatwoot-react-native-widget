@@ -51,8 +51,6 @@ const ChatWootWidget = ({
       style={styles.modal}
       coverScreen
       isVisible={isModalVisible}
-      onSwipeComplete={() => isModalVisible}
-      swipeDirection="left"
       onBackdropPress={closeModal}
       onBackButtonPress={closeModal}>
       <View style={styles.mainView}>
