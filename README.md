@@ -1,5 +1,5 @@
 <h1>
-chatwoot-react-native-widget (Work in progress)
+chatwoot-react-native-widget
 </h1>
 
 ![](https://img.shields.io/npm/v/@chatwoot/react-native-widget?style=flat)
@@ -7,8 +7,7 @@ chatwoot-react-native-widget (Work in progress)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 ![](https://img.shields.io/npm/l/@chatwoot/@chatwoot/react-native-widget)
 
-
-- **Supported Chatwoot version:** 1.13.2+
+- **Supported Chatwoot version:** 1.18.0+
 
 <img src="https://user-images.githubusercontent.com/12408980/112000864-99ef4d80-8adb-11eb-94c1-9901a13b4dd4.png" alt="screenshot" width="350">
 
@@ -70,15 +69,19 @@ const App = () => {
           <Text style={styles.buttonText}>Open widget</Text>
         </TouchableOpacity>
       </View>
-      <ChatWootWidget
-          websiteToken={websiteToken}
-          locale={locale}
-          baseUrl={baseUrl}
-          closeModal={() => toggleWidget(false)}
-          isModalVisible={showWidget}
-          user={user}
-          customAttributes={customAttributes}
-        />
+      {
+        showWidget&&
+          <ChatWootWidget
+            websiteToken={websiteToken}
+            locale={locale}
+            baseUrl={baseUrl}
+            closeModal={() => toggleWidget(false)}
+            isModalVisible={showWidget}
+            user={user}
+            customAttributes={customAttributes}
+          />
+      }
+
     </SafeAreaView>
   );
 };
@@ -127,16 +130,34 @@ The whole example is in the `/example` folder.
 </tr></thead>
 <tbody>
   <tr>
-    <td>websiteToken</td>
-    <td> - </td>
-    <td> String </td>
-    <td>The website token copyied from website channel</td>
-  </tr>
-  <tr>
     <td>baseUrl</td>
     <td> - </td>
     <td> String </td>
-    <td>Chatwoot installation url</td>
+    <td>Chatwoot installation URL</td>
+  </tr>
+ <tr>
+    <td>websiteToken</td>
+    <td> - </td>
+    <td> String </td>
+    <td>Website channel token</td>
+  </tr>
+  <tr>
+    <td>locale</td>
+    <td> en </td>
+    <td> String </td>
+    <td>Locale</td>
+  </tr>
+  <tr>
+    <td>isModalVisible</td>
+    <td> false </td>
+    <td> Boolean </td>
+    <td>Widget is visible or not</td>
+  </tr>
+    <tr>
+    <td>closeModal</td>
+    <td> - </td>
+    <td> Function </td>
+    <td>Close event</td>
   </tr>
   <tr>
 	  <td>user</td>
@@ -145,7 +166,7 @@ The whole example is in the `/example` folder.
     <td>User information about the user like email, username and avatar_url</td>
   </tr>
   <tr>
-   <td>customattributes</td>
+   <td>customAttributes</td>
     <td> {} </td>
     <td> Object </td>
     <td>Additional information about the customer</td>
@@ -159,4 +180,4 @@ Feel free to send us feedback on [Twitter](https://twitter.com/chatwootapp) or [
 
 If there's anything you'd like to chat about, please feel free to join our [Discord](https://discord.gg/cJXdrwS) chat!
 
-_Chatwoot_ &copy; 2017-2020, Chatwoot Inc - Released under the MIT License.
+_Chatwoot_ &copy; 2017-2021, Chatwoot Inc - Released under the MIT License.
