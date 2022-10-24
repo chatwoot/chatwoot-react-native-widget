@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     overflow: 'hidden',
   },
+  webViewContainer: {
+    flex: 1,
+  }
 });
 WebViewComponent.defaultProps = defaultProps;
 WebViewComponent.propTypes = propTypes;
