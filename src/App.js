@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import { storeHelper } from './utils';
 import WebView from './WebView';
 import styles from './style';
+import { COLOR_WHITE } from './constants';
+
 const propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
   websiteToken: PropTypes.string.isRequired,
@@ -25,7 +27,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
-  customattributes: {},
+  customAttributes: {},
 };
 
 const ChatWootWidget = ({
@@ -48,12 +50,15 @@ const ChatWootWidget = ({
 
   return (
     <Modal
-      style={styles.modal}
+      backdropColor={COLOR_WHITE}
       coverScreen
       isVisible={isModalVisible}
+      onBackButtonPress={closeModal}
       onBackdropPress={closeModal}
-      onBackButtonPress={closeModal}>
-      <View style={styles.mainView}>
+      style={styles.modal}
+    >
+      <SafeAreaView style={styles.headerView} />
+      <SafeAreaView style={styles.mainView}>
         <WebView
           websiteToken={websiteToken}
           cwCookie={cwCookie}
@@ -63,7 +68,7 @@ const ChatWootWidget = ({
           customAttributes={customAttributes}
           closeModal={closeModal}
         />
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 };
