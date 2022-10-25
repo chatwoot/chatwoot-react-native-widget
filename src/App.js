@@ -27,7 +27,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
-  customattributes: {},
+  customAttributes: {},
 };
 
 const ChatWootWidget = ({
