@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Linking } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { isJsonString, storeHelper, generateScripts, getMessage } from './utils';
@@ -45,6 +45,15 @@ const WebViewComponent = ({
     customAttributes,
   });
 
+  const onShouldStartLoadWithRequest = (request) => {
+    if (request.url !== widgetUrl) {
+      Linking.openURL(request.url);
+      return false;
+    }
+
+    return true;
+  };
+
   return (
     <WebView
       source={{
@@ -74,6 +83,7 @@ const WebViewComponent = ({
       domStorageEnabled={true}
       style={styles.WebViewStyle}
       injectedJavaScript={injectedJavaScript}
+      onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
       scrollEnabled
     />
   );
