@@ -22,7 +22,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
-  customattributes: {},
+  customAttributes: {},
 };
 
 const WebViewComponent = ({
@@ -34,7 +34,7 @@ const WebViewComponent = ({
   customAttributes,
   closeModal,
 }) => {
-  let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=en`;
+  let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}`;
 
   if (cwCookie) {
     widgetUrl = `${widgetUrl}&cw_conversation=${cwCookie}`;
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   webViewContainer: {
     flex: 1,
-  }
+  },
 });
 WebViewComponent.defaultProps = defaultProps;
 WebViewComponent.propTypes = propTypes;
