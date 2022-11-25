@@ -13,10 +13,10 @@ import styles from './style';
 const App = () => {
   const [showWidget, toggleWidget] = useState(false);
   const [user, setUser] = useState({
-    identifier: 'sabu_mon@gmail.com',
-    name: 'Sabu Mon',
-    avatar_url: 'https://i.pravatar.cc/300',
-    email: 'sabu_mon@gmail.com',
+    identifier: 'sandra.lawrence@example.com',
+    name: 'Sandra Lawrence',
+    avatar_url: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+    email: 'sandra.lawrence@example.com',
     identifier_hash: '',
   });
   const customAttributes = {
