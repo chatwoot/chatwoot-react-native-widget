@@ -46,7 +46,8 @@ const WebViewComponent = ({
   });
 
   const onShouldStartLoadWithRequest = (request) => {
-    if (request.url !== widgetUrl) {
+    const shouldRedirectToBrowser = !widgetUrl.includes(request.url);
+    if (shouldRedirectToBrowser) {
       Linking.openURL(request.url);
       return false;
     }

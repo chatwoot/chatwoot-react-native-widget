@@ -11,7 +11,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@chatwoot/react-native-widget": "^0.0.8",
+    "@chatwoot/react-native-widget": "../chatwoot-react-native-widget-0.0.9.tgz",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "react": "17.0.1",
     "react-native": "0.64.0",
