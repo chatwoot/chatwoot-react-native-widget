@@ -11,12 +11,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@chatwoot/react-native-widget": "../chatwoot-react-native-widget-0.0.9.tgz",
+    "@chatwoot/react-native-widget": "../chatwoot-react-native-widget-0.0.10.tgz",
     "@react-native-async-storage/async-storage": "^1.14.1",
     "react": "17.0.1",
     "react-native": "0.64.0",
-    "react-native-webview": "^11.2.5",
-    "yarn": "^1.22.10"
+    "react-native-webview": "^11.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
