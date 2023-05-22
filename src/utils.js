@@ -19,7 +19,7 @@ export const createWootPostMessage = (object) => {
 
 export const getMessage = (data) => data.replace(WOOT_PREFIX, '');
 
-export const generateScripts = ({ theme, user, locale, customAttributes }) => {
+export const generateScripts = ({ colorScheme, user, locale, customAttributes }) => {
   let script = '';
   if (user) {
     const userObject = {
@@ -40,8 +40,8 @@ export const generateScripts = ({ theme, user, locale, customAttributes }) => {
     };
     script += createWootPostMessage(attributeObject);
   }
-  if (theme) {
-    const themeObject = { event: POST_MESSAGE_EVENTS.SET_THEME, theme };
+  if (colorScheme) {
+    const themeObject = { event: POST_MESSAGE_EVENTS.SET_THEME, colorScheme };
     script += createWootPostMessage(themeObject);
   }
   return script;
