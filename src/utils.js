@@ -19,7 +19,7 @@ export const createWootPostMessage = (object) => {
 
 export const getMessage = (data) => data.replace(WOOT_PREFIX, '');
 
-export const generateScripts = ({ user, locale, customAttributes }) => {
+export const generateScripts = ({ darkMode, user, locale, customAttributes }) => {
   let script = '';
   if (user) {
     const userObject = {
@@ -39,6 +39,10 @@ export const generateScripts = ({ user, locale, customAttributes }) => {
       customAttributes,
     };
     script += createWootPostMessage(attributeObject);
+  }
+  if (darkMode) {
+    const darkModeObject = { event: POST_MESSAGE_EVENTS.SET_DARK_MODE, darkMode };
+    script += createWootPostMessage(darkModeObject);
   }
   return script;
 };

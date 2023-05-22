@@ -5,6 +5,7 @@ declare module '@chatwoot/react-native-widget' {
     websiteToken: string;
     locale?: string;
     baseUrl: string;
+    darkMode?: string;
     closeModal: () => void;
     isModalVisible: boolean;
     user?: {
@@ -21,4 +22,3 @@ declare module '@chatwoot/react-native-widget' {
   class ChatWootWidget extends React.Component<ChatWootWidgetProps, any> {}
   export default ChatWootWidget;
 }
-

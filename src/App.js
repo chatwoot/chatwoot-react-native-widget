@@ -19,6 +19,7 @@ const propTypes = {
     identifier_hash: PropTypes.string,
   }),
   locale: PropTypes.string,
+  darkMode: PropTypes.string,
   customAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
@@ -27,6 +28,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
+  darkMode: 'light',
   customAttributes: {},
 };
 
@@ -36,6 +38,7 @@ const ChatWootWidget = ({
   websiteToken,
   user,
   locale,
+  darkMode,
   customAttributes,
   closeModal,
 }) => {
@@ -55,8 +58,7 @@ const ChatWootWidget = ({
       isVisible={isModalVisible}
       onBackButtonPress={closeModal}
       onBackdropPress={closeModal}
-      style={styles.modal}
-    >
+      style={styles.modal}>
       <SafeAreaView style={styles.headerView} />
       <SafeAreaView style={styles.mainView}>
         <WebView
@@ -65,6 +67,7 @@ const ChatWootWidget = ({
           user={user}
           baseUrl={baseUrl}
           locale={locale}
+          darkMode={darkMode}
           customAttributes={customAttributes}
           closeModal={closeModal}
         />
