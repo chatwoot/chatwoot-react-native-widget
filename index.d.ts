@@ -5,7 +5,7 @@ declare module '@chatwoot/react-native-widget' {
     websiteToken: string;
     locale?: string;
     baseUrl: string;
-    darkMode?: string;
+    theme?: string;
     closeModal: () => void;
     isModalVisible: boolean;
     user?: {
