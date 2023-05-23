@@ -7,7 +7,7 @@ chatwoot-react-native-widget
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 ![](https://img.shields.io/npm/l/@chatwoot/@chatwoot/react-native-widget)
 
-- **Supported Chatwoot version:** 1.18.0+
+- **Supported Chatwoot version:** 2.16.0+
 
 <img src="https://user-images.githubusercontent.com/12408980/203909820-938136a6-bf5b-433e-9f68-d7f28a1303be.png" alt="screenshot" width="350">
 
