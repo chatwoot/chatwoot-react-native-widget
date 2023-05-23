@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Appearance } from 'react-native';
 import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
-import { storeHelper } from './utils';
+import { storeHelper, findColors } from './utils';
 import WebView from './WebView';
 import styles from './style';
-import { COLOR_WHITE } from './constants';
+import {COLOR_WHITE} from './constants';
 
 const propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
@@ -19,6 +19,7 @@ const propTypes = {
     identifier_hash: PropTypes.string,
   }),
   locale: PropTypes.string,
+  colorScheme: PropTypes.oneOf(['dark', 'light', 'auto']),
   customAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
@@ -27,6 +28,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
+  colorScheme: 'light',
   customAttributes: {},
 };
 
@@ -36,10 +38,12 @@ const ChatWootWidget = ({
   websiteToken,
   user,
   locale,
+  colorScheme,
   customAttributes,
   closeModal,
 }) => {
   const [cwCookie, setCookie] = useState('');
+
   useEffect(() => {
     async function fetchData() {
       const value = await storeHelper.getCookie();
@@ -47,7 +51,12 @@ const ChatWootWidget = ({
     }
     fetchData();
   }, []);
+  const appColorScheme = Appearance.getColorScheme();
 
+  const { headerBackgroundColor, mainBackgroundColor } = findColors({
+    colorScheme,
+    appColorScheme,
+  });
   return (
     <Modal
       backdropColor={COLOR_WHITE}
@@ -55,16 +64,16 @@ const ChatWootWidget = ({
       isVisible={isModalVisible}
       onBackButtonPress={closeModal}
       onBackdropPress={closeModal}
-      style={styles.modal}
-    >
-      <SafeAreaView style={styles.headerView} />
-      <SafeAreaView style={styles.mainView}>
+      style={styles.modal}>
+      <SafeAreaView style={[styles.headerView, { backgroundColor: headerBackgroundColor }]} />
+      <SafeAreaView style={[styles.mainView, { backgroundColor: mainBackgroundColor }]}>
         <WebView
           websiteToken={websiteToken}
           cwCookie={cwCookie}
           user={user}
           baseUrl={baseUrl}
           locale={locale}
+          colorScheme={colorScheme}
           customAttributes={customAttributes}
           closeModal={closeModal}
         />
