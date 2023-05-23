@@ -19,7 +19,7 @@ const propTypes = {
     identifier_hash: PropTypes.string,
   }),
   locale: PropTypes.string,
-  theme: PropTypes.string,
+  colorScheme: PropTypes.oneOfType(['dark', 'light', 'auto']),
   customAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
@@ -28,7 +28,7 @@ const defaultProps = {
   cwCookie: '',
   user: {},
   locale: 'en',
-  theme: 'light',
+  colorScheme: 'light',
   customAttributes: {},
 };
 
@@ -38,7 +38,7 @@ const ChatWootWidget = ({
   websiteToken,
   user,
   locale,
-  theme,
+  colorScheme,
   customAttributes,
   closeModal,
 }) => {
@@ -67,7 +67,7 @@ const ChatWootWidget = ({
           user={user}
           baseUrl={baseUrl}
           locale={locale}
-          theme={theme}
+          colorScheme={colorScheme}
           customAttributes={customAttributes}
           closeModal={closeModal}
         />

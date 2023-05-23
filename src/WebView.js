@@ -7,7 +7,7 @@ const propTypes = {
   websiteToken: PropTypes.string.isRequired,
   baseUrl: PropTypes.string.isRequired,
   cwCookie: PropTypes.string,
-  colorScheme: PropTypes.string,
+  colorScheme: PropTypes.oneOfType(['dark', 'light', 'auto']),
   user: PropTypes.shape({
     name: PropTypes.string,
     avatar_url: PropTypes.string,
