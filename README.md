@@ -61,6 +61,7 @@ const App = () => {
   const websiteToken = 'WEBSITE_TOKEN';
   const baseUrl = 'CHATWOOT_INSTALLATION_URL';
   const locale = 'en';
+  const colorScheme='dark'
 
   return (
     <SafeAreaView style={styles.container}>
@@ -79,6 +80,7 @@ const App = () => {
             isModalVisible={showWidget}
             user={user}
             customAttributes={customAttributes}
+            colorScheme={colorScheme}
           />
       }
 
@@ -142,6 +144,12 @@ The whole example is in the `/example` folder.
     <td>Website channel token</td>
   </tr>
   <tr>
+    <td>colorScheme</td>
+    <td> light </td>
+    <td> String </td>
+    <td>Widget color scheme (light/dark/auto)</td>
+  </tr>
+   <tr>
     <td>locale</td>
     <td> en </td>
     <td> String </td>
@@ -180,4 +188,4 @@ Feel free to send us feedback on [Twitter](https://twitter.com/chatwootapp) or [
 
 If there's anything you'd like to chat about, please feel free to join our [Discord](https://discord.gg/cJXdrwS) chat!
 
-_Chatwoot_ &copy; 2017-2022, Chatwoot Inc - Released under the MIT License.
+_Chatwoot_ &copy; 2017-2023, Chatwoot Inc - Released under the MIT License.
