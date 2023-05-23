@@ -1,5 +1,3 @@
-import { BG_COLOR, COLOR_WHITE } from './constants';
-
 const { StyleSheet } = require('react-native');
 
 const styles = StyleSheet.create({
@@ -10,11 +8,9 @@ const styles = StyleSheet.create({
   },
   mainView: {
     flex: 1,
-    backgroundColor: BG_COLOR,
   },
   headerView: {
-    backgroundColor: COLOR_WHITE,
     flex: 0,
-  }
+  },
 });
 export default styles;
