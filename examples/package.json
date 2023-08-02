@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@chatwoot/react-native-widget": "../chatwoot-react-native-widget-0.0.14.tgz",
+    "@chatwoot/react-native-widget": "../chatwoot-react-native-widget-0.0.16.tgz",
     "@react-native-async-storage/async-storage": "^1.18.1",
     "react": "18.2.0",
     "react-native": "0.71.8",
