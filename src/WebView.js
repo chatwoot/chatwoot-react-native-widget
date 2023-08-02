@@ -37,6 +37,7 @@ const WebViewComponent = ({
   customAttributes,
   closeModal,
 }) => {
+  const [currentUrl, setCurrentUrl] = React.useState(null);
   let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}`;
 
   if (cwCookie) {
@@ -50,13 +51,20 @@ const WebViewComponent = ({
   });
 
   const onShouldStartLoadWithRequest = (request) => {
-    const shouldRedirectToBrowser = !widgetUrl.includes(request.url);
+    const isMessageView = currentUrl && currentUrl.includes('#/messages');
+    const isAttachmentUrl = !widgetUrl.includes(request.url);
+    // Open the attachments only in the external browser
+    const shouldRedirectToBrowser = isMessageView && isAttachmentUrl;
     if (shouldRedirectToBrowser) {
       Linking.openURL(request.url);
       return false;
     }
 
     return true;
+  };
+
+  const handleWebViewNavigationStateChange = (newNavState) => {
+    setCurrentUrl(newNavState.url);
   };
 
   return (
@@ -89,6 +97,7 @@ const WebViewComponent = ({
       style={styles.WebViewStyle}
       injectedJavaScript={injectedJavaScript}
       onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+      onNavigationStateChange={handleWebViewNavigationStateChange}
       scrollEnabled
     />
   );

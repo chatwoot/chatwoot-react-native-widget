@@ -24,8 +24,8 @@ const App = () => {
     pricingPlan: 'paid',
     status: 'active',
   };
-  const websiteToken = 'uDDidz9scvbDBcxjCfwdWJRZ';
-  const baseUrl = 'https://mobile.chatwoot.app';
+  const websiteToken = 'RY3LaFtwmkPhDdZVmRd4ektW';
+  const baseUrl = 'https://staging.chatwoot.com';
   const [locale, setLocale] = useState('en');
 
   return (
@@ -81,7 +81,7 @@ const App = () => {
         websiteToken={websiteToken}
         locale={locale}
         baseUrl={baseUrl}
-        colorScheme="dark"
+        colorScheme="light"
         closeModal={() => toggleWidget(false)}
         isModalVisible={showWidget}
         user={user}
