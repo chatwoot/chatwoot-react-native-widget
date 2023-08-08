@@ -7,4 +7,4 @@ export const POST_MESSAGE_EVENTS = {
 };
 export const COLOR_WHITE = '#fff';
 export const BG_COLOR_WHITE = '#f1f5f8';
-export const BG_COLOR_DARK = '#1B2836';
+export const BG_COLOR_DARK = '#25292c';
