@@ -6,5 +6,5 @@ export const POST_MESSAGE_EVENTS = {
   SET_COLOR_SCHEME: 'set-color-scheme',
 };
 export const COLOR_WHITE = '#fff';
-export const BG_COLOR_WHITE = '#f1f5f8';
+export const BG_COLOR_WHITE = '#FFFF';
 export const BG_COLOR_DARK = '#25292c';
