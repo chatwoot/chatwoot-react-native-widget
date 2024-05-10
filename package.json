@@ -14,7 +14,7 @@
     "@react-native-async-storage/async-storage": "^1.14.1",
     "react": "*",
     "react-native": "*",
-    "react-native-webview": "^11.2.3"
+    "react-native-webview": "^13.6.4"
   },
   "devDependencies": {
     "@react-native-community/eslint-config": "^2.0.0",
