@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ChatWootWidget from './src/App';
+import ChatWootWidget from '@chatwoot/react-native-widget';
 
 import {
   SafeAreaView,
