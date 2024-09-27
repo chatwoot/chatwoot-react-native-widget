@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { storeHelper, findColors } from './utils';
 import WebView from './WebView';
 import styles from './style';
-import {COLOR_WHITE} from './constants';
+import { COLOR_WHITE } from './constants';
 
 const propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
@@ -24,22 +24,14 @@ const propTypes = {
   closeModal: PropTypes.func,
 };
 
-const defaultProps = {
-  cwCookie: '',
-  user: {},
-  locale: 'en',
-  colorScheme: 'light',
-  customAttributes: {},
-};
-
 const ChatWootWidget = ({
   isModalVisible,
   baseUrl,
   websiteToken,
-  user,
-  locale,
-  colorScheme,
-  customAttributes,
+  user = {},
+  locale = 'en',
+  colorScheme = 'light',
+  customAttributes = {},
   closeModal,
 }) => {
   const [cwCookie, setCookie] = useState('');
@@ -82,7 +74,6 @@ const ChatWootWidget = ({
   );
 };
 
-ChatWootWidget.defaultProps = defaultProps;
 ChatWootWidget.propTypes = propTypes;
 
 export default ChatWootWidget;
