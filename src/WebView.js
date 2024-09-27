@@ -19,22 +19,14 @@ const propTypes = {
   closeModal: PropTypes.func,
 };
 
-const defaultProps = {
-  cwCookie: '',
-  user: {},
-  locale: 'en',
-  customAttributes: {},
-  colorScheme: 'light',
-};
-
 const WebViewComponent = ({
   baseUrl,
   websiteToken,
-  cwCookie,
-  locale,
-  colorScheme,
-  user,
-  customAttributes,
+  cwCookie = '',
+  locale = 'en',
+  colorScheme = 'light',
+  user = {},
+  customAttributes = {},
   closeModal,
 }) => {
   const [currentUrl, setCurrentUrl] = React.useState(null);
@@ -113,6 +105,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-WebViewComponent.defaultProps = defaultProps;
 WebViewComponent.propTypes = propTypes;
 export default WebViewComponent;
