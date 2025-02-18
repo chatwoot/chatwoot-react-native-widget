@@ -184,8 +184,8 @@ The whole example is in the `/example` folder.
 
 ## Feedback & Contributing
 
-Feel free to send us feedback on [Twitter](https://twitter.com/chatwootapp) or [file an issue](https://github.com/chatwoot/chatwoot-mobile-app/issues).
+Feel free to send us feedback on [Twitter](https://x.com/chatwootapp) or [file an issue](https://github.com/chatwoot/chatwoot-react-native-widget/issues).
 
 If there's anything you'd like to chat about, please feel free to join our [Discord](https://discord.gg/cJXdrwS) chat!
 
-_Chatwoot_ &copy; 2017-2023, Chatwoot Inc - Released under the MIT License.
+_Chatwoot_ &copy; 2017-2025, Chatwoot Inc - Released under the MIT License.
