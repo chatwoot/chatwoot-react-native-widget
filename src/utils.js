@@ -46,6 +46,13 @@ export const generateScripts = ({ colorScheme, user, locale, customAttributes })
     };
     script += createWootPostMessage(attributeObject);
   }
+  if (customAttributes) {
+    const attributeObject = {
+      event: POST_MESSAGE_EVENTS.SET_CONVERSATION_CUSTOM_ATTRIBUTES,
+      customAttributes,
+    };
+    script += createWootPostMessage(attributeObject);
+  }
   if (colorScheme) {
     const themeObject = { event: POST_MESSAGE_EVENTS.SET_COLOR_SCHEME, darkMode: colorScheme };
     script += createWootPostMessage(themeObject);
