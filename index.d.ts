@@ -17,6 +17,7 @@ declare module '@chatwoot/react-native-widget' {
     };
     // This can actually be any object
     customAttributes?: Record<string, unknown>;
+    conversationCustomAttributes?: Record<string, unknown>;
   }
 
   class ChatWootWidget extends React.Component<ChatWootWidgetProps, any> {}
