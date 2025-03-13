@@ -16,6 +16,7 @@ const propTypes = {
   }),
   locale: PropTypes.string,
   customAttributes: PropTypes.shape({}),
+  conversationCustomAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
 
@@ -27,6 +28,7 @@ const WebViewComponent = ({
   colorScheme = 'light',
   user = {},
   customAttributes = {},
+  conversationCustomAttributes = {},
   closeModal,
 }) => {
   const [currentUrl, setCurrentUrl] = React.useState(null);
@@ -40,6 +42,7 @@ const WebViewComponent = ({
     locale,
     customAttributes,
     colorScheme,
+    conversationCustomAttributes
   });
 
   const onShouldStartLoadWithRequest = (request) => {
