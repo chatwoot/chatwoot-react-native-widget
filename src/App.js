@@ -21,6 +21,7 @@ const propTypes = {
   locale: PropTypes.string,
   colorScheme: PropTypes.oneOf(['dark', 'light', 'auto']),
   customAttributes: PropTypes.shape({}),
+  conversationCustomAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
 
@@ -32,6 +33,7 @@ const ChatWootWidget = ({
   locale = 'en',
   colorScheme = 'light',
   customAttributes = {},
+  conversationCustomAttributes = {},
   closeModal,
 }) => {
   const [cwCookie, setCookie] = useState('');
@@ -67,6 +69,7 @@ const ChatWootWidget = ({
           locale={locale}
           colorScheme={colorScheme}
           customAttributes={customAttributes}
+          conversationCustomAttributes={conversationCustomAttributes}
           closeModal={closeModal}
         />
       </SafeAreaView>
