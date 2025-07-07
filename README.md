@@ -40,7 +40,7 @@ cd ios && pod install
 1. Create a website channel in chatwoot server by following the steps described here https://www.chatwoot.com/docs/channels/website
 2. Replace `websiteToken` prop and `baseUrl`
 
-```
+```js
 
 import React, { useState } from 'react';
 
@@ -57,6 +57,7 @@ const App = () => {
     email: 'john@gmail.com',
     identifier_hash: '',
   };
+  // Contact custom attributes, https://www.chatwoot.com/hc/user-guide/articles/1677587234-how-to-send-additional-user-information-to-chatwoot-using-sdk#set-custom-attributes
   const customAttributes = { accountId: 1, pricingPlan: 'paid', status: 'active' };
   const websiteToken = 'WEBSITE_TOKEN';
   const baseUrl = 'CHATWOOT_INSTALLATION_URL';
@@ -177,7 +178,7 @@ The whole example is in the `/example` folder.
    <td>customAttributes</td>
     <td> {} </td>
     <td> Object </td>
-    <td>Additional information about the customer</td>
+    <td>Additional information about the customer, please make sure the <a href="https://www.chatwoot.com/hc/user-guide/articles/1677502327-how-to-create-and-use-custom-attributes">custom attribute already exist</a></td>
   </tr>
  </tbody>
 </table>
@@ -188,4 +189,4 @@ Feel free to send us feedback on [Twitter](https://twitter.com/chatwootapp) or [
 
 If there's anything you'd like to chat about, please feel free to join our [Discord](https://discord.gg/cJXdrwS) chat!
 
-_Chatwoot_ &copy; 2017-2023, Chatwoot Inc - Released under the MIT License.
+_Chatwoot_ &copy; 2017-2025, Chatwoot Inc - Released under the MIT License.
