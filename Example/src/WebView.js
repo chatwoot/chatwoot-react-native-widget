@@ -31,11 +31,13 @@ const WebViewComponent = ({
 }) => {
   const [currentUrl, setCurrentUrl] = React.useState(null);
   const [loading, setLoading] = useState(true);
+  const [webViewKey, setWebViewKey] = useState(1);
   let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}`;
 
   if (cwCookie) {
     widgetUrl = `${widgetUrl}&cw_conversation=${cwCookie}`;
   }
+
   const injectedJavaScript = generateScripts({
     user,
     locale,
@@ -79,11 +81,25 @@ const WebViewComponent = ({
     );
   };
 
+  React.useEffect(() => {
+    setWebViewKey((prev) => prev + 1);
+  }, [cwCookie, websiteToken]);
+
   return (
     <View style={styles.container}>
       <WebView
+        key={webViewKey}
+        incognito={true}
+        cacheEnabled={false}
+        sharedCookiesEnabled={false}
+        thirdPartyCookiesEnabled={false}
         source={{
           uri: widgetUrl,
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            Pragma: 'no-cache',
+            Expires: '0',
+          },
         }}
         onMessage={(event) => {
           const { data } = event.nativeEvent;
@@ -104,9 +120,8 @@ const WebViewComponent = ({
         }}
         scalesPageToFit
         useWebKit
-        sharedCookiesEnabled
         javaScriptEnabled={true}
-        domStorageEnabled={true}
+        domStorageEnabled={false}
         style={[styles.WebViewStyle, opacity]}
         injectedJavaScript={injectedJavaScript}
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
