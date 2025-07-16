@@ -15,11 +15,11 @@ import {
 const App = () => {
   const [showWidget, toggleWidget] = useState(false);
   const [user, setUser] = useState({
-    identifier: 'sabir.k@example.com',
+    identifier: 'sabu.man',
     name: 'Nova Rider',
     avatar_url: 'https://i.pravatar.cc/150',
     email: 'nova.rider@example.com',
-    identifier_hash: '5e9a3d5a71143059d3a3e87a0847ad8e8880defd6772c8d61c0e324b9e7a95a1',
+    identifier_hash: '',
   });
   const customAttributes = {
     order_id: 1212,
