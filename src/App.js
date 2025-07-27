@@ -17,10 +17,12 @@ const propTypes = {
     avatar_url: PropTypes.string,
     email: PropTypes.string,
     identifier_hash: PropTypes.string,
+    user_id: PropTypes.number,
   }),
   locale: PropTypes.string,
   colorScheme: PropTypes.oneOf(['dark', 'light', 'auto']),
   customAttributes: PropTypes.shape({}),
+  conversationCustomAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
 
@@ -32,6 +34,7 @@ const ChatWootWidget = ({
   locale = 'en',
   colorScheme = 'light',
   customAttributes = {},
+  conversationCustomAttributes = {},
   closeModal,
 }) => {
   const [cwCookie, setCookie] = useState('');
@@ -50,15 +53,6 @@ const ChatWootWidget = ({
     appColorScheme,
   });
   return (
-    <Modal
-      backdropColor={COLOR_WHITE}
-      coverScreen
-      isVisible={isModalVisible}
-      onBackButtonPress={closeModal}
-      onBackdropPress={closeModal}
-      style={styles.modal}>
-      <SafeAreaView style={[styles.headerView, { backgroundColor: headerBackgroundColor }]} />
-      <SafeAreaView style={[styles.mainView, { backgroundColor: mainBackgroundColor }]}>
         <WebView
           websiteToken={websiteToken}
           cwCookie={cwCookie}
@@ -67,10 +61,9 @@ const ChatWootWidget = ({
           locale={locale}
           colorScheme={colorScheme}
           customAttributes={customAttributes}
+          conversationCustomAttributes={conversationCustomAttributes}
           closeModal={closeModal}
         />
-      </SafeAreaView>
-    </Modal>
   );
 };
 

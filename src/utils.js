@@ -25,7 +25,7 @@ export const createWootPostMessage = (object) => {
 
 export const getMessage = (data) => data.replace(WOOT_PREFIX, '');
 
-export const generateScripts = ({ colorScheme, user, locale, customAttributes }) => {
+export const generateScripts = ({ colorScheme, user, locale, customAttributes, conversationCustomAttributes }) => {
   let script = '';
   if (user) {
     const userObject = {
@@ -43,6 +43,13 @@ export const generateScripts = ({ colorScheme, user, locale, customAttributes })
     const attributeObject = {
       event: POST_MESSAGE_EVENTS.SET_CUSTOM_ATTRIBUTES,
       customAttributes,
+    };
+    script += createWootPostMessage(attributeObject);
+  }
+  if (conversationCustomAttributes) {
+    const attributeObject = {
+      event: POST_MESSAGE_EVENTS.SET_CONVERSATION_CUSTOM_ATTRIBUTES,
+      conversationCustomAttributes,
     };
     script += createWootPostMessage(attributeObject);
   }
