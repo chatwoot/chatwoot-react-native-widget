@@ -17,6 +17,7 @@ const propTypes = {
     avatar_url: PropTypes.string,
     email: PropTypes.string,
     identifier_hash: PropTypes.string,
+    user_id: PropTypes.number,
   }),
   locale: PropTypes.string,
   colorScheme: PropTypes.oneOf(['dark', 'light', 'auto']),
@@ -52,15 +53,6 @@ const ChatWootWidget = ({
     appColorScheme,
   });
   return (
-    <Modal
-      backdropColor={COLOR_WHITE}
-      coverScreen
-      isVisible={isModalVisible}
-      onBackButtonPress={closeModal}
-      onBackdropPress={closeModal}
-      style={styles.modal}>
-      <SafeAreaView style={[styles.headerView, { backgroundColor: headerBackgroundColor }]} />
-      <SafeAreaView style={[styles.mainView, { backgroundColor: mainBackgroundColor }]}>
         <WebView
           websiteToken={websiteToken}
           cwCookie={cwCookie}
@@ -72,8 +64,6 @@ const ChatWootWidget = ({
           conversationCustomAttributes={conversationCustomAttributes}
           closeModal={closeModal}
         />
-      </SafeAreaView>
-    </Modal>
   );
 };
 
