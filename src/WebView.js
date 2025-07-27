@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Linking } from 'react-native';
+import { StyleSheet, Linking, View, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { isJsonString, storeHelper, generateScripts, getMessage } from './utils';
@@ -61,6 +61,14 @@ const WebViewComponent = ({
   const handleWebViewNavigationStateChange = (newNavState) => {
     setCurrentUrl(newNavState.url);
   };
+  
+  const _renderLoading = () => { 
+    return (
+      <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+        <ActivityIndicator size="large" color={"#373571"} />
+      </View>
+    )
+  }
 
   return (
     <WebView
@@ -94,6 +102,11 @@ const WebViewComponent = ({
       onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
       onNavigationStateChange={handleWebViewNavigationStateChange}
       scrollEnabled
+      isLoading={isLoading}
+      onLoadEnd={()=>{
+        setLoading(false);
+      }}
+      renderLoading={_renderLoading}
     />
   );
 };
