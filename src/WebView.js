@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Linking, View, ActivityIndicator } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import { StyleSheet, Linking, View, ActivityIndicator, Text } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { isJsonString, storeHelper, generateScripts, getMessage } from './utils';
@@ -12,11 +12,11 @@ const propTypes = {
     name: PropTypes.string,
     avatar_url: PropTypes.string,
     email: PropTypes.string,
-    identifier_hash: PropTypes.string,
+    identifier_hash: PropTypes.string,,
+    user_id: PropTypes.number,
   }),
   locale: PropTypes.string,
   customAttributes: PropTypes.shape({}),
-  conversationCustomAttributes: PropTypes.shape({}),
   closeModal: PropTypes.func,
 };
 
@@ -28,10 +28,10 @@ const WebViewComponent = ({
   colorScheme = 'light',
   user = {},
   customAttributes = {},
-  conversationCustomAttributes = {},
   closeModal,
 }) => {
   const [currentUrl, setCurrentUrl] = React.useState(null);
+  const [loading, setLoading] = useState(true);
   let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}`;
 
   if (cwCookie) {
@@ -42,7 +42,6 @@ const WebViewComponent = ({
     locale,
     customAttributes,
     colorScheme,
-    conversationCustomAttributes
   });
 
   const onShouldStartLoadWithRequest = (request) => {
@@ -61,57 +60,73 @@ const WebViewComponent = ({
   const handleWebViewNavigationStateChange = (newNavState) => {
     setCurrentUrl(newNavState.url);
   };
-  
-  const _renderLoading = () => { 
+
+  const opacity = useMemo(() => {
+    if (loading) {
+      return {
+        opacity: 0,
+      };
+    }
+    return {
+      opacity: 1,
+    };
+  }, [loading]);
+
+  const renderLoadingComponent = () => {
     return (
-      <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
-        <ActivityIndicator size="large" color={"#373571"} />
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#1f93ff" />
+        <Text style={styles.loadingText}>Loading...</Text>
       </View>
-    )
-  }
+    );
+  };
 
   return (
-    <WebView
-      source={{
-        uri: widgetUrl,
-      }}
-      onMessage={(event) => {
-        const { data } = event.nativeEvent;
-        const message = getMessage(data);
-        if (isJsonString(message)) {
-          const parsedMessage = JSON.parse(message);
-          const { event: eventType, type } = parsedMessage;
-          if (eventType === 'loaded') {
-            const {
-              config: { authToken },
-            } = parsedMessage;
-            storeHelper.storeCookie(authToken);
+    <View style={styles.container}>
+      <WebView
+        source={{
+          uri: widgetUrl,
+        }}
+        onMessage={(event) => {
+          const { data } = event.nativeEvent;
+          const message = getMessage(data);
+          if (isJsonString(message)) {
+            const parsedMessage = JSON.parse(message);
+            const { event: eventType, type } = parsedMessage;
+            if (eventType === 'loaded') {
+              const {
+                config: { authToken },
+              } = parsedMessage;
+              storeHelper.storeCookie(authToken);
+            }
+            if (type === 'close-widget') {
+              closeModal();
+            }
           }
-          if (type === 'close-widget') {
-            closeModal();
-          }
-        }
-      }}
-      scalesPageToFit
-      useWebKit
-      sharedCookiesEnabled
-      javaScriptEnabled={true}
-      domStorageEnabled={true}
-      style={styles.WebViewStyle}
-      injectedJavaScript={injectedJavaScript}
-      onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
-      onNavigationStateChange={handleWebViewNavigationStateChange}
-      scrollEnabled
-      isLoading={isLoading}
-      onLoadEnd={()=>{
-        setLoading(false);
-      }}
-      renderLoading={_renderLoading}
-    />
+        }}
+        scalesPageToFit
+        useWebKit
+        sharedCookiesEnabled
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        style={[styles.WebViewStyle, opacity]}
+        injectedJavaScript={injectedJavaScript}
+        onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
+        onNavigationStateChange={handleWebViewNavigationStateChange}
+        onLoadStart={() => setLoading(true)}
+        onLoadProgress={() => setLoading(true)}
+        onLoadEnd={() => setLoading(false)}
+        scrollEnabled
+      />
+      {loading && renderLoadingComponent()}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   modal: {
     flex: 1,
     borderRadius: 4,
@@ -119,6 +134,24 @@ const styles = StyleSheet.create({
   },
   webViewContainer: {
     flex: 1,
+  },
+  WebViewStyle: {
+    flex: 1,
+  },
+  loadingContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: '#666',
   },
 });
 WebViewComponent.propTypes = propTypes;
