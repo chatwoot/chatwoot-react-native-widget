@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { StyleSheet, Linking, View, ActivityIndicator, Text } from 'react-native';
+import { StyleSheet, Linking, View, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
 import { isJsonString, storeHelper, generateScripts, getMessage } from './utils';
@@ -22,11 +22,11 @@ const propTypes = {
 const WebViewComponent = ({
   baseUrl,
   websiteToken,
-  cwCookie = '',
-  locale = 'en',
-  colorScheme = 'light',
-  user = {},
-  customAttributes = {},
+  cwCookie,
+  locale,
+  colorScheme,
+  user,
+  customAttributes,
   closeModal,
 }) => {
   const [currentUrl, setCurrentUrl] = React.useState(null);
@@ -74,8 +74,7 @@ const WebViewComponent = ({
   const renderLoadingComponent = () => {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#1f93ff" />
-        <Text style={styles.loadingText}>Loading...</Text>
+        <ActivityIndicator size="small" />
       </View>
     );
   };
@@ -153,5 +152,6 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
+
 WebViewComponent.propTypes = propTypes;
 export default WebViewComponent;
