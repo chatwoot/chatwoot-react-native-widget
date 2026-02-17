@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import { StyleSheet, Linking, View, ActivityIndicator, Text } from 'react-native';
 import { WebView } from 'react-native-webview';
 import PropTypes from 'prop-types';
@@ -29,6 +29,7 @@ const WebViewComponent = ({
   customAttributes = {},
   closeModal,
 }) => {
+  const webViewRef = useRef(null);
   const [currentUrl, setCurrentUrl] = React.useState(null);
   const [loading, setLoading] = useState(true);
   let widgetUrl = `${baseUrl}/widget?website_token=${websiteToken}&locale=${locale}`;
@@ -83,6 +84,7 @@ const WebViewComponent = ({
   return (
     <View style={styles.container}>
       <WebView
+        ref={webViewRef}
         source={{
           uri: widgetUrl,
         }}
@@ -97,6 +99,13 @@ const WebViewComponent = ({
                 config: { authToken },
               } = parsedMessage;
               storeHelper.storeCookie(authToken);
+              // Re-inject user data now that the widget is fully initialized.
+              // The injectedJavaScript prop fires when the WebView page loads,
+              // but the Chatwoot widget may not have set up its message listeners
+              // yet at that point. The 'loaded' event signals the widget is ready.
+              if (webViewRef.current) {
+                webViewRef.current.injectJavaScript(injectedJavaScript + '; true;');
+              }
             }
             if (type === 'close-widget') {
               closeModal();
