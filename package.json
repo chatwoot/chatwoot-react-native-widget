@@ -7,9 +7,6 @@
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react-native-modal": "^13.0.1"
-  },
   "peerDependencies": {
     "@react-native-async-storage/async-storage": ">=1.23.1",
     "react": "*",
