@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Appearance } from 'react-native';
-import Modal from 'react-native-modal';
+import { SafeAreaView, Appearance, Modal } from 'react-native';
 import PropTypes from 'prop-types';
 import { storeHelper, findColors } from './utils';
 import WebView from './WebView';
 import styles from './style';
-import { COLOR_WHITE } from './constants';
 
 const propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
@@ -51,12 +49,9 @@ const ChatWootWidget = ({
   });
   return (
     <Modal
-      backdropColor={COLOR_WHITE}
-      coverScreen
-      isVisible={isModalVisible}
-      onBackButtonPress={closeModal}
-      onBackdropPress={closeModal}
-      style={styles.modal}>
+      animationType="slide"
+      visible={isModalVisible}
+      onRequestClose={closeModal}>
       <SafeAreaView style={[styles.headerView, { backgroundColor: headerBackgroundColor }]} />
       <SafeAreaView style={[styles.mainView, { backgroundColor: mainBackgroundColor }]}>
         <WebView
